@@ -4,7 +4,7 @@
 #include <ratio>
 #include <chrono>
 
-#define SIZE 500
+#define SIZE 1000
 #define SIZE_X 2
 #define SIZE_Y 1
 
@@ -70,14 +70,14 @@ int main()
 void multiplicationClassic()
 {
 #pragma loop(no_vector)
-    for (int i = 0; i < SIZE * SIZE_Y; i++)
+    for (int i = 0; i < SIZE * SIZE_Y; ++i)
     {
 #pragma loop(no_vector)
-        for (int j = 0; j < SIZE * SIZE_Y; j++)
+        for (int j = 0; j < SIZE * SIZE_Y; ++j)
         {
             MatrixC1[i][j] = 0;
 #pragma loop(no_vector)
-            for (int k = 0; k < SIZE * SIZE_X; k++)
+            for (int k = 0; k < SIZE * SIZE_X; ++k)
             {
                 MatrixC2[i][j] += MatrixA[i][k] * MatrixB[k][j];
             }
